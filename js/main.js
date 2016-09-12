@@ -3,21 +3,33 @@ var author = "Anonymous Author";
 
 $(document).ready(function(){
   $("#requestQuote").on("click",function(){
-    $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?",function(json){
-        quote = json.quoteText;
-        $("#quote").html(quote);
-        if (json.quoteAuthor) {
-          author = json.quoteAuthor;
-          $("#author").html("  -- " + json.quoteAuthor);
-        } else {
-          $("#author").html("  -- Anonymous Author");
-        }
+    var requestQuote = function() {
+    return $.ajax({
+      url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
+      headers: {
+        'X-Mashape-Key': 'hZiK86xXVPmshgK1yR6VHfAH4DSQp1BOYJJjsnJqVHSNQxJwCJ'
+      },
+      method: 'POST',
+      contentType: 'application/x-www-form-urlencoded',
+      dataType: 'json',
+    })
+    };
+    requestQuote().done(function(data){
+      ;
+      quote = data.quote;
+      $("#quote").html(quote);
+      if (data.author) {
+        author = data.author;
+        $("#author").html("  -- " + data.author);
+      } else {
+        $("#author").html("  -- Anonymous Author");
+      }
     });
   });
-});
 
-function twitterOut() {
-  quote = $("#quote").html();
-  author = $("#author").html();
-  window.open("http://twitter.com/intent/tweet?text=" + quote + author);
-}
+  $("#social").on("click", function(){
+    quote = $("#quote").html();
+    author = $("#author").html();
+    window.open("https://twitter.com/intent/tweet?text=" + quote + author);
+  });
+});
