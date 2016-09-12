@@ -1,15 +1,41 @@
-header {
-  margin-top: 10em;
-  margin-right: 20em;
-  margin-left: 20em;
-  padding
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #262216;
 }
 
-header, main {
-  background: rgba(0, 0, 0, 0.4);
+body {
+  background-color: #262216 !important;
+  color: #b0a18e !important;
+}
+
+header {
+  margin-top: 10%;
+  margin-right: 20em;
+  margin-left: 20em;
+  padding: 1.5em;
+  border: 2px solid grey;
+  border-radius: 8px;
+}
+
+header, .smaller-container {
+  background-color: #49412c;
+  opacity: 0.8;
 }
 
 main {
-  margin-top: 3em;
   padding: 3em;
+
+}
+
+.smaller-container {
+  margin-right: 10em;
+  margin-left: 10em;
+  padding: 3em;
+  border: 2px solid grey;
+  border-radius: 8px;
+}
+
+#mysocial {
+  margin-top: 1.5em;
 }
