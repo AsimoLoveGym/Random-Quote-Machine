@@ -19,5 +19,5 @@ $(document).ready(function(){
 function twitterOut() {
   quote = $("#quote").html();
   author = $("#author").html();
-  window.open("https://twitter.com/intent/tweet?text=" + quote + author);
+  window.open("http://twitter.com/intent/tweet?text=" + quote + author);
 }
